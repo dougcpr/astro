@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Session, useSupabaseClient } from "@supabase/auth-helpers-react";
 import SignIn from "@/pages/sign-in";
-import { AuthChangeEvent } from "@supabase/gotrue-js";
+import {AuthChangeEvent} from "@supabase/gotrue-js";
 const Index = () => {
-  const [session, setSession] = useState<Session | null>(null);
-  const [isLoading, setLoading] = useState(true);
-  const supabase = useSupabaseClient();
+  const [session, setSession] = useState<Session | null>(null)
+  const [isLoading, setLoading] = useState(true)
+  const supabase = useSupabaseClient()
   useEffect(() => {
     supabase?.auth?.getSession().then(({ data: { session } }: any) => {
       setSession(session);
@@ -21,14 +21,14 @@ const Index = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  if (isLoading) return <div />;
+  if (isLoading) return <div />
 
   return (
     <>
       {!session ? (
         <SignIn setSession={setSession} />
       ) : (
-        <div>Hello Main Page</div>
+       <div>Hello Main Page</div>
       )}
     </>
   );

@@ -2,9 +2,9 @@ import React, { FC, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import LogOut from "@geist-ui/icons/logOut";
-import { Button } from "@geist-ui/core";
-import { Session, useSupabaseClient } from "@supabase/auth-helpers-react";
-import { AuthChangeEvent } from "@supabase/gotrue-js";
+import {Button} from "@geist-ui/core";
+import {Session, useSupabaseClient} from "@supabase/auth-helpers-react";
+import {AuthChangeEvent} from "@supabase/gotrue-js";
 import Home from "@geist-ui/icons/home";
 
 const NavBarContainer = styled.div`
@@ -40,11 +40,10 @@ const SideNavBarOperationalButtons = styled.div`
 type AppLayoutProps = {
   children: any;
 };
-
-const AppLayout: FC<AppLayoutProps> = ({ children }) => {
-  const supabase = useSupabaseClient();
-  const router = useRouter();
-  const [session, setSession] = useState<Session | null>(null);
+const AppLayout: FC<AppLayoutProps> = ({children}) => {
+  const supabase = useSupabaseClient()
+  const router = useRouter()
+  const [session, setSession] = useState<Session | null>(null)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }: any) => {
@@ -80,17 +79,10 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
             <SideNavBarButtonContainer>
               <SideNavBarNavigationButtons>
                 <Button
-                  onClick={() => router.push("/")}
-                  style={{
-                    backgroundColor: determineButtonBackgroundColor("/"),
-                    border: 0,
-                  }}
-                  icon={<Home color="#858699" />}
+                  onClick={() => router.push('/')} style={{backgroundColor: determineButtonBackgroundColor('/'), border: 0}}
+                  icon={<Home color="#858699"/>}
                   auto
-                  scale={1}
-                >
-                  Home
-                </Button>
+                  scale={1}>Home</Button>
               </SideNavBarNavigationButtons>
               <SideNavBarOperationalButtons>
                 <Button
