@@ -71,6 +71,27 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
     const { error } = await supabase.auth.signOut();
     await router.push("/");
   }
+  type Route = {
+    name: string,
+    path: string
+  }
+  // TODO: Add Icon
+  const routes: Route[] = [{
+    name: "Home",
+    path: "/"
+  }, {
+    name: "Schedule",
+    path: "/schedule"
+  }, {
+    name: "Courses",
+    path: "/courses"
+  }, {
+    name: "Videos",
+    path: "/videos"
+  }, {
+    name: "Settings",
+    path: "/settings"
+  }]
   if (session) {
     return (
       <>
@@ -78,11 +99,15 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
           <SideNavBar>
             <SideNavBarButtonContainer>
               <SideNavBarNavigationButtons>
-                <Button
-                  onClick={() => router.push('/')} style={{backgroundColor: determineButtonBackgroundColor('/'), border: 0}}
-                  icon={<Home color="#858699"/>}
-                  auto
-                  scale={1}>Home</Button>
+                {routes.map((route: Route) => {
+                  return (
+                    <Button
+                      key={route.name}
+                      onClick={() => router.push(route.path)} style={{backgroundColor: determineButtonBackgroundColor(route.path), border: 0}}
+                      auto
+                      scale={1}>{route.name}</Button>
+                  )
+                })}
               </SideNavBarNavigationButtons>
               <SideNavBarOperationalButtons>
                 <Button
