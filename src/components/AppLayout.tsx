@@ -6,6 +6,7 @@ import {Button} from "@geist-ui/core";
 import {Session, useSupabaseClient} from "@supabase/auth-helpers-react";
 import {AuthChangeEvent} from "@supabase/gotrue-js";
 import Home from "@geist-ui/icons/home";
+import {Book, Calendar, Settings} from "@geist-ui/icons";
 
 const NavBarContainer = styled.div`
   display: grid;
@@ -73,25 +74,28 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
   }
   type Route = {
     name: string,
-    path: string
+    path: string,
+    icon: any
   }
   // TODO: Add Icon
   const routes: Route[] = [{
     name: "Home",
-    path: "/"
+    path: "/",
+    icon: <Home />
   }, {
     name: "Schedule",
-    path: "/schedule"
+    path: "/schedule",
+    icon: <Calendar />
   }, {
     name: "Courses",
-    path: "/courses"
-  }, {
-    name: "Videos",
-    path: "/videos"
+    path: "/courses",
+    icon: <Book />
   }, {
     name: "Settings",
-    path: "/settings"
+    path: "/settings",
+    icon: <Settings />
   }]
+
   if (session) {
     return (
       <>
@@ -105,6 +109,7 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
                       key={route.name}
                       onClick={() => router.push(route.path)} style={{backgroundColor: determineButtonBackgroundColor(route.path), border: 0}}
                       auto
+                      icon={route.icon}
                       scale={1}>{route.name}</Button>
                   )
                 })}
