@@ -10,7 +10,11 @@ import {Book, Calendar, Settings} from "@geist-ui/icons";
 
 const NavBarContainer = styled.div`
   display: grid;
-  grid-template-columns: 10rem 1fr;
+  grid-template-columns: 4rem 1fr;
+  @media(max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: calc(100vh - 4rem) 4rem;
+  }
 `;
 
 const SideNavBar = styled.div`
@@ -19,6 +23,11 @@ const SideNavBar = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  @media(max-width: 800px) {
+    height: 100%;
+    width: 100%;
+    order: 1;
+  }
 `;
 
 const SideNavBarButtonContainer = styled.div`
@@ -26,16 +35,26 @@ const SideNavBarButtonContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  @media(max-width: 800px) {
+    flex-direction: row;
+  }
 `;
 
 const SideNavBarNavigationButtons = styled.div`
   display: grid;
   grid-row-gap: 1rem;
   padding-top: 3rem;
+  @media(max-width: 800px) {
+    padding-top: 0;
+    display: flex;
+  }
 `;
 
 const SideNavBarOperationalButtons = styled.div`
   padding-bottom: 3rem;
+  @media(max-width: 800px) {
+    padding-bottom: 0;
+  }
 `;
 
 type AppLayoutProps = {
@@ -110,7 +129,7 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
                       onClick={() => router.push(route.path)} style={{backgroundColor: determineButtonBackgroundColor(route.path), border: 0}}
                       auto
                       icon={route.icon}
-                      scale={1}>{route.name}</Button>
+                      scale={1} />
                   )
                 })}
               </SideNavBarNavigationButtons>
@@ -121,9 +140,7 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
                   icon={<LogOut />}
                   auto
                   scale={1}
-                >
-                  Logout
-                </Button>
+                />
               </SideNavBarOperationalButtons>
             </SideNavBarButtonContainer>
           </SideNavBar>

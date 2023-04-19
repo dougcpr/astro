@@ -1,7 +1,7 @@
 import React from "react";
 const Courses = () => {
   return (
-    <>Hello Courses Page</>
+    <div>Hello Courses Page</div>
   );
 };
 
