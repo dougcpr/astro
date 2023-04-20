@@ -153,4 +153,4 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
   }
 };
 
-export default AppLayout;
+export default AppLayout

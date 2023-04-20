@@ -4,7 +4,7 @@ import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import React from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { GlobalStyles } from "@/lib/global-styles";
-import AppLayout from "@/components/AppLayout";
+import AppLayout from "@/features/app/AppLayout";
 
 const theme = Themes.createFromDark({
   type: "darkTheme",

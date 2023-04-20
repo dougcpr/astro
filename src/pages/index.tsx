@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Session, useSupabaseClient } from "@supabase/auth-helpers-react";
 import SignIn from "@/pages/sign-in";
 import {AuthChangeEvent} from "@supabase/gotrue-js";
+import HomeLayout from "@/features/home/HomeLayout";
 const Index = () => {
   const [session, setSession] = useState<Session | null>(null)
   const [isLoading, setLoading] = useState(true)
@@ -28,7 +29,7 @@ const Index = () => {
       {!session ? (
         <SignIn setSession={setSession} />
       ) : (
-       <div>Hello Main Page</div>
+        <HomeLayout />
       )}
     </>
   );
