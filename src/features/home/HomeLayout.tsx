@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import styled from "styled-components";
 import NewCourses from "@/features/home/components/NewCourses";
 
@@ -17,9 +17,9 @@ const HomeDashboardGrid = styled.div`
 const HomeDashboardCourseRow = styled.div`
   display: grid;
   row-gap: 1rem;
-  grid-template-rows: 3rem 1fr 1fr;
+  grid-template-rows: 3rem 23rem 1fr;
   @media(max-width: 800px) {
-    grid-template-rows: 3rem 25rem 25rem;
+    grid-template-rows: 3rem 23rem 23rem;
   }
 `
 
@@ -28,7 +28,7 @@ const HomeDashboardProgressRow = styled.div`
   row-gap: 1rem;
   grid-template-rows: 1fr 1fr 1fr;
   @media(max-width: 800px) {
-    grid-template-rows: 25rem 25rem 25rem;
+    grid-template-rows: 25rem 23rem 23rem;
   }
 `
 const HomeDashboardFillerCard = styled.div`
