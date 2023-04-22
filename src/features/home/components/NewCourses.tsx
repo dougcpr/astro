@@ -3,14 +3,13 @@ import styled from "styled-components";
 
 const NewCoursesContainer = styled.div`
   display: grid;
-  grid-template-rows: 2rem 20rem;
+  grid-template-rows: 3rem 19rem;
 `
 
 const NewCoursesCarousel = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 1rem;
-  padding: 1rem;
   @media(max-width: 750px) {
     overflow-x: scroll;
     grid-template-columns: repeat(3, 200px);

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NewCourses from "@/features/home/components/NewCourses";
+import CourseSearch from "@/features/home/components/CourseSearch";
 
 const HomeDashboardGrid = styled.div`
   padding: 1rem;
@@ -17,6 +18,7 @@ const HomeDashboardGrid = styled.div`
 const HomeDashboardCourseRow = styled.div`
   display: grid;
   row-gap: 1rem;
+  padding: 1rem;
   grid-template-rows: 3rem 23rem 1fr;
   @media(max-width: 800px) {
     grid-template-rows: 3rem 23rem 23rem;
@@ -41,7 +43,7 @@ const HomeLayout = () => {
   return (
     <HomeDashboardGrid>
       <HomeDashboardCourseRow>
-        <HomeDashboardFillerCard/>
+        <CourseSearch />
         <NewCourses />
         <HomeDashboardFillerCard/>
       </HomeDashboardCourseRow>
