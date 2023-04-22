@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import NewCourses from "@/features/home/components/NewCourses";
 
 const HomeDashboardGrid = styled.div`
   padding: 1rem;
@@ -41,7 +42,7 @@ const HomeLayout = () => {
     <HomeDashboardGrid>
       <HomeDashboardCourseRow>
         <HomeDashboardFillerCard/>
-        <HomeDashboardFillerCard/>
+        <NewCourses />
         <HomeDashboardFillerCard/>
       </HomeDashboardCourseRow>
       <HomeDashboardProgressRow>
