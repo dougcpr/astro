@@ -3,6 +3,7 @@ import styled from "styled-components";
 import NewCourses from "@/features/home/components/NewCourses";
 import CourseSearch from "@/features/home/components/CourseSearch";
 import MyCourses from "@/features/home/components/MyCourses";
+import Profile from "@/features/home/components/Profile";
 
 const HomeDashboardGrid = styled.div`
   padding: 1rem;
@@ -49,7 +50,7 @@ const HomeLayout = () => {
         <MyCourses />
       </HomeDashboardCourseRow>
       <HomeDashboardProgressRow>
-        <HomeDashboardFillerCard/>
+        <Profile />
         <HomeDashboardFillerCard/>
         <HomeDashboardFillerCard/>
       </HomeDashboardProgressRow>
