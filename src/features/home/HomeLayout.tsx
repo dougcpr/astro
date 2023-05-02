@@ -4,6 +4,7 @@ import NewCourses from "@/features/home/components/NewCourses";
 import CourseSearch from "@/features/home/components/CourseSearch";
 import MyCourses from "@/features/home/components/MyCourses";
 import Profile from "@/features/home/components/Profile";
+import MyCalendar from "@/features/home/components/MyCalendar/MyCalendar";
 
 const HomeDashboardGrid = styled.div`
   padding: 1rem;
@@ -51,7 +52,7 @@ const HomeLayout = () => {
       </HomeDashboardCourseRow>
       <HomeDashboardProgressRow>
         <Profile />
-        <HomeDashboardFillerCard/>
+        <MyCalendar />
         <HomeDashboardFillerCard/>
       </HomeDashboardProgressRow>
     </HomeDashboardGrid>

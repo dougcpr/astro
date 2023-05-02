@@ -5,6 +5,7 @@ import React from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { GlobalStyles } from "@/lib/global-styles";
 import AppLayout from "@/features/app/AppLayout";
+import '../styles/CalendarOverride.css';
 
 const theme = Themes.createFromDark({
   type: "darkTheme",
