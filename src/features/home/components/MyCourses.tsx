@@ -3,9 +3,8 @@ import {Table} from "@geist-ui/core";
 
 const MyCourses = () => {
   const data = [
-    { courseName: 'Web Design', startDate: 'May 12', grade: '94', level: 'Elementary' },
-    { courseName: 'Development Basics', startDate: 'May 14', grade: '73', level: 'Intermediate' },
-    { courseName: 'Data with Python', startDate: 'May 11', grade: '88', level: 'Elementary' },
+    { courseName: 'Geography', startDate: 'May 12', grade: '94', level: 'Elementary' },
+    { courseName: 'Introduction to Algebra', startDate: 'May 14', grade: '73', level: 'Elementary' }
   ]
   return (
     <div>

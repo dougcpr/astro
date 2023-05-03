@@ -48,12 +48,12 @@ type homeworkProgress = {
 const mockHomeworkProgressData: homeworkProgress[] = [{
   id: 1,
   percent: 50,
-  className: "Styling with CSS",
+  className: "Identifying Countries",
   tasks: 12
 }, {
   id: 2,
   percent: 20,
-  className: "Javascript Fundamentals",
+  className: "Introduction to Variables",
   tasks: 19
 }]
 
@@ -62,7 +62,7 @@ const HomeworkProgress = () => {
 
   return (
     <div>
-      <h3>My Courses</h3>
+      <h3>Homework Progress</h3>
       <HomeworkProgressCardContainer>
         {mockHomeworkProgressData.map((progress: homeworkProgress) => {
           return (
