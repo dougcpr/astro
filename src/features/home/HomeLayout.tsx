@@ -36,11 +36,6 @@ const HomeDashboardProgressRow = styled.div`
   @media(max-width: 800px) {
   }
 `
-const HomeDashboardFillerCard = styled.div`
-  background-color: lightblue;
-  height: 100%;
-  width: 100%;
-`
 
 const HomeLayout = () => {
   return (

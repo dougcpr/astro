@@ -27,7 +27,7 @@ const HomeworkProgressCard = styled.div`
   align-items: center;
   :hover {
     cursor: pointer;
-    background-color: rgb(39, 40, 50);
+    background-color: #272832;
     color: #999;
     max-width: 100%;
   }
