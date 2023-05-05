@@ -53,6 +53,15 @@ const mockData: CourseData[] = [{
   level: 'Elementary',
   rating: 3.2,
   reviewerCount: 13
+}, {
+  id: 3,
+  title: 'Speech',
+  description: 'This course covers speech.',
+  startDate: '2023-05-29',
+  endDate: '2023-06-26',
+  level: 'Elementary',
+  rating: 2,
+  reviewerCount: 100
 }
 ]
 
