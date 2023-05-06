@@ -1,5 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from "react"
+import styled from "styled-components"
+import {ChevronRight, Image, Plus} from "@geist-ui/icons"
+import {Avatar} from "@geist-ui/core"
 
 const NewCoursesContainer = styled.div`
   display: grid;
@@ -7,8 +9,7 @@ const NewCoursesContainer = styled.div`
 `
 
 const NewCoursesCarousel = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   column-gap: 1rem;
   @media(max-width: 750px) {
     overflow-x: scroll;
@@ -17,30 +18,69 @@ const NewCoursesCarousel = styled.div`
 `
 
 const NewCoursesCard = styled.div`
+  border: 1px solid #2a2b39;
+  border-radius: 0.25rem;
+  min-width: 275px;
+  max-width: 250px;
   padding: 1rem;
-  background-color: lightcoral;
   display: grid;
   row-gap: 1rem;
-  grid-template-rows: 5fr 3fr 2fr;
+  grid-template-rows: 5fr 2fr 1fr;
+  :hover {
+    cursor: pointer;
+    background-color: #272832;
+    color: #999;
+  }
 `
 
 const NewCoursesCardImage = styled.div`
-  background-color: lightblue;
+  background-color: #191a23;
+  border: 1px solid #333;;
+  border-radius: 0.25rem;
+  display: grid;
+  place-items: center;
   height: 100%;
 `
 
 const NewCoursesCardDescription = styled.div`
-  background-color: lightblue;
   height: 100%;
 `
 
 const NewCoursesCardFooter = styled.div`
   align-items: center;
-  background-color: lightblue;
   height: 100%;
   display: flex;
   justify-content: space-between;
 `
+
+const mockData = [{
+  id: 3,
+  title: 'Typing',
+  description: 'This is a broad cover on world geography.',
+  level: 'Elementary',
+  rating: 3.2,
+  reviewerCount: 13,
+  lessons: [{}, {}, {}],
+  students: [{}, {}, {}, {}, {}]
+}, {
+  id: 4,
+  title: 'Introduction to Data Structures',
+  description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
+  level: 'Elementary',
+  rating: 3.2,
+  reviewerCount: 13,
+  lessons: [{}, {}, {}],
+  students: [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+}, {
+  id: 5,
+  title: 'Introduction to Sewing',
+  description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
+  level: 'Elementary',
+  rating: 3.2,
+  reviewerCount: 13,
+  lessons: [{}, {}, {}, {}],
+  students: [{}, {}, {}, {}, {}, {}]
+}]
 
 
 const NewCourses = () => {
@@ -48,39 +88,24 @@ const NewCourses = () => {
     <NewCoursesContainer>
       <h3>New Courses</h3>
       <NewCoursesCarousel>
-        <NewCoursesCard>
-          <NewCoursesCardImage>Image Goes Here</NewCoursesCardImage>
-          <NewCoursesCardDescription>
-            <div>Title</div>
-            <div>X Lessons</div>
-          </NewCoursesCardDescription>
-          <NewCoursesCardFooter>
-            <div>Image Profiles</div>
-            <div>Nav</div>
-          </NewCoursesCardFooter>
-        </NewCoursesCard>
-        <NewCoursesCard>
-          <NewCoursesCardImage>Image Goes Here</NewCoursesCardImage>
-          <NewCoursesCardDescription>
-            <div>Title</div>
-            <div>X Lessons</div>
-          </NewCoursesCardDescription>
-          <NewCoursesCardFooter>
-            <div>Image Profiles</div>
-            <div>Nav</div>
-          </NewCoursesCardFooter>
-        </NewCoursesCard>
-        <NewCoursesCard>
-          <NewCoursesCardImage>Image Goes Here</NewCoursesCardImage>
-          <NewCoursesCardDescription>
-            <div>Title</div>
-            <div>X Lessons</div>
-          </NewCoursesCardDescription>
-          <NewCoursesCardFooter>
-            <div>Image Profiles</div>
-            <div>Nav</div>
-          </NewCoursesCardFooter>
-        </NewCoursesCard>
+        {mockData.map(data => {
+        return (
+          <NewCoursesCard key={data.id}>
+            <NewCoursesCardImage><Image /></NewCoursesCardImage>
+            <NewCoursesCardDescription>
+              <div>{data.title}</div>
+              <div>{data.lessons.length} Lessons</div>
+            </NewCoursesCardDescription>
+            <NewCoursesCardFooter>
+              <Avatar.Group count={data.students.length}>
+                <Avatar text="K" stacked />
+                <Avatar text="D" stacked />
+              </Avatar.Group>
+              <div><ChevronRight /></div>
+            </NewCoursesCardFooter>
+          </NewCoursesCard>
+        )
+        })}
       </NewCoursesCarousel>
     </NewCoursesContainer>
   );

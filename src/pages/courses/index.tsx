@@ -56,8 +56,7 @@ const Courses = () => {
       level: 1,
       videoURL: ''
     }]
-  }
-  ]
+  }]
   return (
     <CoursesContainer>
       <CoursesSideNavigation data={mockData} onItemClick={handleItemClick} />
