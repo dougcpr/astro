@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import {ChevronRight, Image, Plus} from "@geist-ui/icons"
+import {ChevronRight, Image} from "@geist-ui/icons"
 import {Avatar} from "@geist-ui/core"
 
 const NewCoursesContainer = styled.div`

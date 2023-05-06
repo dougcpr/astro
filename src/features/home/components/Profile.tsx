@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Image} from "@geist-ui/icons"
 
 const ProfileContainer = styled.div`
   display: grid;
@@ -15,10 +16,12 @@ const UserContainer = styled.div`
 `
 
 const Avatar = styled.div`
+  border: 1px solid;
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
-  background-color: lightcoral;
+  display: grid;
+  place-items: center;
 `
 
 const UserName = styled.p``
@@ -29,7 +32,7 @@ const Profile = () => {
     <ProfileContainer>
       <h3>Profile</h3>
       <UserContainer>
-        <Avatar />
+        <Avatar><Image /></Avatar>
         <UserName>Doug Cooper</UserName>
         <UserLevel>Elementary</UserLevel>
       </UserContainer>
