@@ -1,9 +1,16 @@
-import React from "react";
-import styled from "styled-components";
+import React, {FC} from "react";
+import {CourseData} from "@/features/courses/models/CourseData";
 
-const CoursesDetail = () => {
+type CoursesDetailType = {
+  data: CourseData
+};
+
+const CoursesDetail: FC<CoursesDetailType> = ({ data }) => {
   return (
-    <div></div>
+    <div className="detail">
+      <h2>{data.title}</h2>
+      <p>{data.description}</p>
+    </div>
   );
 };
 

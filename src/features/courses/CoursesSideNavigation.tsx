@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, FC} from "react";
 import styled from "styled-components";
 import {Rating} from "@geist-ui/core";
+import {CourseData} from "@/features/courses/models/CourseData";
 
 const MyCoursesContainer = styled.div`
   display: grid;
@@ -23,46 +24,18 @@ const CourseCardFooter = styled.div`
   justify-content: space-between;
 `
 
-type CourseData = {
-  id?: number,
-  created_at?: Date,
-  title: string,
-  description: string,
-  startDate: string,
-  endDate: string,
-  level: string,
-  rating: number,
-  reviewerCount: number
-}
+type CourseSideNavigationProps = {
+  data: CourseData[],
+  onItemClick: any
+};
 
-const mockData: CourseData[] = [{
-  id: 1,
-  title: 'Geography',
-  description: 'This is a broad cover on world geography.',
-  startDate: '2023-05-15',
-  endDate: '2023-06-26',
-  level: 'Elementary',
-  rating: 4.5,
-  reviewerCount: 123
-}, {
-  id: 2,
-  title: 'Introduction to Algebra',
-  description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
-  startDate: '2023-05-29',
-  endDate: '2023-06-26',
-  level: 'Elementary',
-  rating: 3.2,
-  reviewerCount: 13
-}
-]
-
-const CoursesSideNavigation = () => {
+const CoursesSideNavigation:FC<CourseSideNavigationProps> = ({data, onItemClick}) => {
   const [selectedCardId, setSelectedCardId] = useState<number | undefined>(0);
 
   function changeTicketBackground(id: number | undefined) {
     const style = {
       borderLeft: "4px solid #575bc7",
-      "backgroundColor": "#2a2a3f"
+      backgroundColor: "#2a2a3f"
     }
     if (id === selectedCardId) return style
   }
@@ -71,9 +44,9 @@ const CoursesSideNavigation = () => {
     <div>
       <h3>My Courses</h3>
       <MyCoursesContainer>
-        {mockData.map((course: CourseData) => {
+        {data.map((course: CourseData) => {
           return (
-            <CourseCard style={changeTicketBackground(course.id)} onClick={() => {setSelectedCardId(course.id)}} key={course.id}>
+            <CourseCard style={changeTicketBackground(course.id)} onClick={() => {setSelectedCardId(course.id); onItemClick(course)}} key={course.id}>
               <h3>{course.title}</h3>
               <p>{course.description}</p>
               <CourseCardFooter>
