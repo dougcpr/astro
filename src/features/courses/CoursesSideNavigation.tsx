@@ -42,6 +42,18 @@ const CoursesSideNavigation:FC<CourseSideNavigationProps> = ({data, onItemClick}
 
   return (
     <div>
+      <h3>New Courses</h3>
+      <MyCoursesContainer>
+          <CourseCard style={changeTicketBackground(3)} onClick={() => {setSelectedCardId(3); onItemClick({title: 'Sample Title', description: 'Sample Description', lessons: [{title: 'Sample Title', description: 'Sample Description'}]})}}>
+            <h3>Sample New Course</h3>
+            <p>Sample New Description</p>
+            <CourseCardFooter>
+              <div><Rating locked={true} value={3} count={5} /> (100)</div>
+              <div>Intermediate</div>
+            </CourseCardFooter>
+          </CourseCard>
+      </MyCoursesContainer>
+      <hr/>
       <h3>My Courses</h3>
       <MyCoursesContainer>
         {data.map((course: CourseData) => {
