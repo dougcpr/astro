@@ -26,7 +26,14 @@ const Courses = () => {
     endDate: '2023-06-26',
     level: 'Elementary',
     rating: 4.5,
-    reviewerCount: 123
+    reviewerCount: 123,
+    lessons: [{
+      id: 1,
+      title: 'How to look at a map',
+      description: 'Covers the techniques used to review latitude and longitude',
+      level: 0,
+      videoURL: ''
+    }]
   }, {
     id: 2,
     title: 'Introduction to Algebra',
@@ -35,7 +42,20 @@ const Courses = () => {
     endDate: '2023-06-26',
     level: 'Elementary',
     rating: 3.2,
-    reviewerCount: 13
+    reviewerCount: 13,
+    lessons: [{
+      id: 2,
+      title: 'How to solve for a variable',
+      description: 'With a practice problem we will go over how to solve for x.',
+      level: 0,
+      videoURL: ''
+    }, {
+      id: 3,
+      title: 'How to use the quadratic formula',
+      description: 'Solving for x given a quadratic equation.',
+      level: 1,
+      videoURL: ''
+    }]
   }
   ]
   return (
