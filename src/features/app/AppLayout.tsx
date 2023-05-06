@@ -6,7 +6,7 @@ import {Button} from "@geist-ui/core";
 import {Session, useSupabaseClient} from "@supabase/auth-helpers-react";
 import {AuthChangeEvent} from "@supabase/gotrue-js";
 import Home from "@geist-ui/icons/home";
-import {Book, Calendar, Settings} from "@geist-ui/icons";
+import {BookOpen, FileText, Settings} from "@geist-ui/icons";
 
 const NavBarContainer = styled.div`
   display: grid;
@@ -102,13 +102,13 @@ const AppLayout: FC<AppLayoutProps> = ({children}) => {
     path: "/",
     icon: <Home />
   }, {
-    name: "Schedule",
-    path: "/schedule",
-    icon: <Calendar />
+    name: "Homework",
+    path: "/homework",
+    icon: <FileText />
   }, {
     name: "Courses",
     path: "/courses",
-    icon: <Book />
+    icon: <BookOpen  />
   }, {
     name: "Settings",
     path: "/settings",
