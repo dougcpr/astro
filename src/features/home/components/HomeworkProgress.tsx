@@ -29,7 +29,6 @@ const HomeworkProgressCard = styled.div`
     cursor: pointer;
     background-color: #272832;
     color: #999;
-    max-width: 100%;
   }
 `
 
