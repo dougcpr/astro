@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import {ChevronRight, Image} from "@geist-ui/icons"
 import {Avatar} from "@geist-ui/core"
+import {useRouter} from "next/router";
 
 const NewCoursesContainer = styled.div`
   display: grid;
@@ -53,44 +54,86 @@ const NewCoursesCardFooter = styled.div`
   justify-content: space-between;
 `
 
-const mockData = [{
-  id: 3,
-  title: 'Typing',
-  description: 'This is a broad cover on world geography.',
-  level: 'Elementary',
-  rating: 3.2,
-  reviewerCount: 13,
-  lessons: [{}, {}, {}],
-  students: [{}, {}, {}, {}, {}]
-}, {
-  id: 4,
-  title: 'Introduction to Data Structures',
-  description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
-  level: 'Elementary',
-  rating: 3.2,
-  reviewerCount: 13,
-  lessons: [{}, {}, {}],
-  students: [{}, {}, {}, {}, {}, {}, {}, {}, {}]
-}, {
-  id: 5,
-  title: 'Introduction to Sewing',
-  description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
-  level: 'Elementary',
-  rating: 3.2,
-  reviewerCount: 13,
-  lessons: [{}, {}, {}, {}],
-  students: [{}, {}, {}, {}, {}, {}]
-}]
+const mockData = {
+  newCourses: [{
+    id: 3,
+    title: 'Typing',
+    description: 'This is a broad cover on world geography.',
+    level: 'Elementary',
+    rating: 3.2,
+    reviewerCount: 13,
+    lessons: [{}, {}, {}],
+    students: [{}, {}, {}, {}, {}]
+  }, {
+    id: 4,
+    title: 'Introduction to Data Structures',
+    description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
+    level: 'Elementary',
+    rating: 3.2,
+    reviewerCount: 13,
+    lessons: [{}, {}, {}],
+    students: [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+  }, {
+    id: 5,
+    title: 'Introduction to Sewing',
+    description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
+    level: 'Elementary',
+    rating: 3.2,
+    reviewerCount: 13,
+    lessons: [{}, {}, {}, {}],
+    students: [{}, {}, {}, {}, {}, {}]
+  }],
+  myCourses: [{
+    id: 1,
+    title: 'Geography',
+    description: 'This is a broad cover on world geography.',
+    startDate: '2023-05-15',
+    endDate: '2023-06-26',
+    level: 'Elementary',
+    rating: 4.5,
+    reviewerCount: 123,
+    lessons: [{
+      id: 1,
+      title: 'How to look at a map',
+      description: 'Covers the techniques used to review latitude and longitude',
+      level: 0,
+      videoURL: ''
+    }]
+  }, {
+    id: 2,
+    title: 'Introduction to Algebra',
+    description: 'This course covers elementary mathematics. This will cover the use of variables in formulas.',
+    startDate: '2023-05-29',
+    endDate: '2023-06-26',
+    level: 'Elementary',
+    rating: 3.2,
+    reviewerCount: 13,
+    lessons: [{
+      id: 2,
+      title: 'How to solve for a variable',
+      description: 'With a practice problem we will go over how to solve for x.',
+      level: 0,
+      videoURL: ''
+    }, {
+      id: 3,
+      title: 'How to use the quadratic formula',
+      description: 'Solving for x given a quadratic equation.',
+      level: 1,
+      videoURL: ''
+    }]
+  }]
+}
 
 
 const NewCourses = () => {
+  const router = useRouter();
   return (
     <NewCoursesContainer>
       <h3>New Courses</h3>
       <NewCoursesCarousel>
-        {mockData.map(data => {
+        {mockData.newCourses.map(data => {
         return (
-          <NewCoursesCard key={data.id}>
+          <NewCoursesCard onClick={() => router.push(`/courses?id=${data.id}`)} key={data.id}>
             <NewCoursesCardImage><Image /></NewCoursesCardImage>
             <NewCoursesCardDescription>
               <div>{data.title}</div>
