@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {CourseData} from "@/features/courses/models/CourseData";
 import styled from "styled-components";
 import {Image, Play} from "@geist-ui/icons";
@@ -44,16 +44,27 @@ const LessonDescription = styled.div`
 `
 
 const CoursesDetail: FC<CoursesDetailType> = ({ data }) => {
+  const [lesson, setLesson] = useState<any>()
   return (
     <div className="detail">
       <PreviewVideoContainer><Play /></PreviewVideoContainer>
-      <h3>{data.title}</h3>
-      <p>{data.description}</p>
+      {lesson &&
+        <div>
+          <h3>{lesson.title}</h3>
+          <p>{lesson.description}</p>
+        </div>
+      }
+      {!lesson &&
+        <div>
+          <h3>{data.title}</h3>
+          <p>{data.description}</p>
+        </div>
+      }
       <h3>Course Content</h3>
       <LessonContainer>
         {data.lessons.map((lesson) => {
           return (
-            <LessonCard key={lesson.id}>
+            <LessonCard onClick={() => setLesson(lesson)} key={lesson.id}>
               <LessonPreview><Image /></LessonPreview>
               <LessonDescription >
                 <h4>{lesson.title}</h4>
