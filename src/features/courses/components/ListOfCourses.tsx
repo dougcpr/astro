@@ -10,7 +10,7 @@ const MyCoursesContainer = styled.div`
   row-gap: 1rem;
 `
 
-const CourseCard = styled.div`
+const ListOfCoursesContainer = styled.div`
   padding: 1rem;
   border: 1px solid #999;
   border-radius: 0.25rem;
@@ -27,11 +27,11 @@ const CourseCardFooter = styled.div`
 `
 
 type CourseSideNavigationProps = {
-  data: any,
+  data: CourseData[],
   onItemClick: any
 };
 
-const CoursesSideNavigation:FC<CourseSideNavigationProps> = ({data, onItemClick}) => {
+const ListOfCourses:FC<CourseSideNavigationProps> = ({data, onItemClick}) => {
   const router = useRouter()
   const [selectedCardId, setSelectedCardId] = useState<number | undefined>(0)
 
@@ -42,21 +42,14 @@ const CoursesSideNavigation:FC<CourseSideNavigationProps> = ({data, onItemClick}
 
   function findCourse() {
     // search through new courses
-    let course = _.find(data.newCourses, function(obj: any) {
+    let course = _.find(data, function(obj: any) {
       if (obj.id === Number(router.query.id)) {
         return true;
       }
     });
-
-    // if nothing is found search through users courses
-    if (course === undefined) {
-      course = _.find(data.myCourses, function(obj: any) {
-        if (obj.id === Number(router.query.id)) {
-          return true;
-        }
-      });
+    if(course !== undefined) {
+      onItemClick(course)
     }
-    onItemClick(course)
   }
 
   function changeTicketBackground(id: number | undefined) {
@@ -68,52 +61,29 @@ const CoursesSideNavigation:FC<CourseSideNavigationProps> = ({data, onItemClick}
   }
 
   return (
-    <div>
-      <h3>New Courses</h3>
+    <>
       <MyCoursesContainer>
-        {data.newCourses.map((course: CourseData) => {
+        {data.map((course: CourseData) => {
           return (
-            <CourseCard style={changeTicketBackground(course.id)}
-                        onClick={async () => {
-                          setSelectedCardId(course.id);
-                          onItemClick(course);
-                          await router.push(`/courses?id=${course.id}`, undefined, { shallow: true });
-                        }}
-                        key={course.id}>
-              <h3>{course.title}</h3>
-              <p>{course.description}</p>
-              <CourseCardFooter>
-                <div><Rating locked={true} value={course.rating} count={5} /> ({course.reviewerCount})</div>
-                <div>{course.level}</div>
-              </CourseCardFooter>
-            </CourseCard>
-          )
-        })}
-      </MyCoursesContainer>
-      <hr/>
-      <h3>My Courses</h3>
-      <MyCoursesContainer>
-        {data.myCourses.map((course: CourseData) => {
-          return (
-            <CourseCard style={changeTicketBackground(course.id)}
-                        onClick={async () => {
+            <ListOfCoursesContainer style={changeTicketBackground(course.id)}
+                           onClick={async () => {
                           setSelectedCardId(course.id);
                           onItemClick(course)
                           await router.push(`/courses?id=${course.id}`, undefined, { shallow: true });
                         }}
-                        key={course.id}>
+                           key={course.id}>
               <h3>{course.title}</h3>
               <p>{course.description}</p>
               <CourseCardFooter>
                 <div><Rating locked={true} value={course.rating} count={5} /> ({course.reviewerCount})</div>
                 <div>{course.level}</div>
               </CourseCardFooter>
-            </CourseCard>
+            </ListOfCoursesContainer>
           )
         })}
       </MyCoursesContainer>
-    </div>
+    </>
   );
 };
 
-export default CoursesSideNavigation;
+export default ListOfCourses;

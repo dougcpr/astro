@@ -43,7 +43,7 @@ const LessonDescription = styled.div`
   padding: 1rem;
 `
 
-const CoursesDetail: FC<CoursesDetailType> = ({ data }) => {
+const Lessons: FC<CoursesDetailType> = ({ data }) => {
   const [lesson, setLesson] = useState<any>()
 
   function changeTicketBackground(id: number | undefined) {
@@ -51,7 +51,7 @@ const CoursesDetail: FC<CoursesDetailType> = ({ data }) => {
       borderLeft: "4px solid #575bc7",
       backgroundColor: "#2a2a3f"
     }
-    if (id === lesson.id) return style
+    if (id === lesson?.id) return style
   }
 
   return (
@@ -87,4 +87,4 @@ const CoursesDetail: FC<CoursesDetailType> = ({ data }) => {
   );
 };
 
-export default CoursesDetail;
+export default Lessons;

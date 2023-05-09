@@ -133,7 +133,7 @@ const NewCourses = () => {
       <NewCoursesCarousel>
         {mockData.newCourses.map(data => {
         return (
-          <NewCoursesCard onClick={() => router.push(`/courses?id=${data.id}`)} key={data.id}>
+          <NewCoursesCard onClick={() => router.push(`/courses?id=${data.id}&tab=1`)} key={data.id}>
             <NewCoursesCardImage><Image /></NewCoursesCardImage>
             <NewCoursesCardDescription>
               <div>{data.title}</div>

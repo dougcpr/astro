@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import CoursesSideNavigation from "@/features/courses/CoursesSideNavigation";
-import CoursesDetail from "@/features/courses/CoursesDetail";
+import CoursesSideNavigation from "@/features/courses/components/CoursesSideNavigation";
+import Lessons from "@/features/courses/components/Lessons";
 import {CourseData} from "@/features/courses/models/CourseData";
 
 const CoursesContainer = styled.div`
@@ -90,7 +90,7 @@ const Courses = () => {
   return (
     <CoursesContainer>
       <CoursesSideNavigation data={mockData} onItemClick={handleItemClick} />
-      {selectedItem ? <CoursesDetail data={selectedItem} /> : <p>Select an course to view details.</p>}
+      {selectedItem ? <Lessons data={selectedItem} /> : <p>Select an course to view details.</p>}
     </CoursesContainer>
   );
 };
