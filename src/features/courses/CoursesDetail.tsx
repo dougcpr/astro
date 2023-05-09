@@ -45,6 +45,15 @@ const LessonDescription = styled.div`
 
 const CoursesDetail: FC<CoursesDetailType> = ({ data }) => {
   const [lesson, setLesson] = useState<any>()
+
+  function changeTicketBackground(id: number | undefined) {
+    const style = {
+      borderLeft: "4px solid #575bc7",
+      backgroundColor: "#2a2a3f"
+    }
+    if (id === lesson.id) return style
+  }
+
   return (
     <div className="detail">
       <PreviewVideoContainer><Play /></PreviewVideoContainer>
@@ -64,7 +73,7 @@ const CoursesDetail: FC<CoursesDetailType> = ({ data }) => {
       <LessonContainer>
         {data.lessons.map((lesson) => {
           return (
-            <LessonCard onClick={() => setLesson(lesson)} key={lesson.id}>
+            <LessonCard  style={changeTicketBackground(lesson.id)} onClick={() => setLesson(lesson)} key={lesson.id}>
               <LessonPreview><Image /></LessonPreview>
               <LessonDescription >
                 <h4>{lesson.title}</h4>

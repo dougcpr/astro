@@ -26,7 +26,7 @@ const Courses = () => {
       level: 'Elementary',
       rating: 3.2,
       reviewerCount: 13,
-      lessons: [{}, {}, {}],
+      lessons: [{id: 1}, {id: 2}, {id: 3}],
       students: [{}, {}, {}, {}, {}]
     }, {
       id: 4,
@@ -35,7 +35,7 @@ const Courses = () => {
       level: 'Elementary',
       rating: 3.2,
       reviewerCount: 13,
-      lessons: [{}, {}, {}],
+      lessons: [{id: 4}, {id: 5}, {id: 6}],
       students: [{}, {}, {}, {}, {}, {}, {}, {}, {}]
     }, {
       id: 5,
@@ -44,7 +44,7 @@ const Courses = () => {
       level: 'Elementary',
       rating: 3.2,
       reviewerCount: 13,
-      lessons: [{}, {}, {}, {}],
+      lessons: [{id: 7}, {id: 8}, {id: 9}, {id: 10}],
       students: [{}, {}, {}, {}, {}, {}]
     }],
     myCourses: [{
