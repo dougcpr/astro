@@ -22,7 +22,7 @@ const LessonContainer = styled.div`
 
 const LessonCard = styled.div`
   display: grid;
-  height: 6rem;
+  height: 8rem;
   grid-template-columns: 6rem 1fr;
   border: 1px solid #999;
   border-radius: 0.25rem;
